@@ -25,7 +25,7 @@ function WishlistItem({ item }: IWishlistItemProps) {
         <BsCart />
       </Button>
 
-      <Text fontWeight="bold">$ {item.price}</Text>
+      <Text fontWeight="bold">Ghs {item.price}</Text>
       <Button
         {...trashButtonStyles}
         onClick={() => removeItem("wishlist", item.id)}>

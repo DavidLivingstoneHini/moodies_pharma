@@ -20,28 +20,48 @@ function DeliveryInformation() {
 
   return (
     <Card>
-      <CardHeader fontSize="md">Delivery Information</CardHeader>
+      <CardHeader fontSize={{ base: "sm", md: "md" }}>Delivery Information</CardHeader>
 
       <CardBody>
-        <Stack spacing="2rem">
+        <Stack spacing={{ base: "1rem", md: "2rem" }}>
           <Box>
-            <FormLabel>Full Name</FormLabel>
-            <Input type="text" placeholder="Full Name" />
+            <FormLabel fontSize={{ base: "sm", md: "md" }}>Full Name</FormLabel>
+            <Input
+              type="text"
+              placeholder="Full Name"
+              size={{ base: "sm", md: "md" }} // Smaller input on mobile
+              w="100%" // Full width on all screens
+            />
           </Box>
 
           <Box>
-            <FormLabel>Address</FormLabel>
-            <Input type="text" placeholder="Adress" />
+            <FormLabel fontSize={{ base: "sm", md: "md" }}>Address</FormLabel>
+            <Input
+              type="text"
+              placeholder="Address"
+              size={{ base: "sm", md: "md" }} // Smaller input on mobile
+              w="100%" // Full width on all screens
+            />
           </Box>
 
           <Box>
-            <FormLabel>Phone</FormLabel>
-            <Input type="text" placeholder="Phone Number" />
+            <FormLabel fontSize={{ base: "sm", md: "md" }}>Phone</FormLabel>
+            <Input
+              type="text"
+              placeholder="Phone Number"
+              size={{ base: "sm", md: "md" }} // Smaller input on mobile
+              w="100%" // Full width on all screens
+            />
           </Box>
 
           <Box>
-            <FormLabel>Email</FormLabel>
-            <Input type="text" placeholder="email" />
+            <FormLabel fontSize={{ base: "sm", md: "md" }}>Email</FormLabel>
+            <Input
+              type="text"
+              placeholder="Email"
+              size={{ base: "sm", md: "md" }} // Smaller input on mobile
+              w="100%" // Full width on all screens
+            />
           </Box>
         </Stack>
       </CardBody>

@@ -42,7 +42,7 @@ function ProductCard({ product }: Props) {
               </Heading>
               <Flex>
                 <Text fontSize="sm" color="brand.primary" fontWeight="bold">
-                  ${" "}
+                  Ghs{" "}
                 </Text>
                 <Text
                   color="brand.primary"

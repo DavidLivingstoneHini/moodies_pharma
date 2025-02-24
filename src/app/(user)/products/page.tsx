@@ -30,7 +30,7 @@ async function ProductsPage() {
         btnLabel="View All Categories"
         heading="Best and Quality Products"
         description="Affordability, Durability, Fast and Convenient Delivery, Free Shipping and more"
-        imageUrl="https://cdn.sanity.io/images/gbmlc5y8/production/e085a7a29cbc4f47eee4b2b8ce6660e9c028e100-640x369.jpg"
+        imageUrl="/categoryp.png"
       />
       <GridProducts products={products} />
     </div>

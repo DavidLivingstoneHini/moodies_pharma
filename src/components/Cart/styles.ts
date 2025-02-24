@@ -2,8 +2,8 @@ import { ButtonProps, FlexProps, InputProps, LinkProps } from "@chakra-ui/react"
 
 export const cartItemFlexContainerStyles: FlexProps = {
   wrap: { base: "nowrap", lg: "wrap" },
-  p: "1rem",
-  gap: "1rem",
+  p: { base: "0.5rem", lg: "1rem" }, // Reduce padding on mobile
+  gap: { base: "0.5rem", lg: "1rem" }, // Reduce gap on mobile
   align: "center",
   borderBottom: "1px",
   borderColor: "gray.200",

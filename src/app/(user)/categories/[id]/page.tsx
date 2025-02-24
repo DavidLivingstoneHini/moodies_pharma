@@ -34,7 +34,7 @@ async function CategoryPage({ params: { id } }: ICategoryPageProps) {
   return (
     <>
       <Hero
-        btnLabel="View Alll Categories"
+        btnLabel="View All Categories"
         btnLink="/categories"
         description={`Best and Affordable ${categoryName} `}
         heading={categoryName}

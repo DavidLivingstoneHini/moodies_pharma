@@ -17,33 +17,48 @@ function ReviewItems() {
 
   return (
     <Card>
-      <CardHeader fontSize="md">Review Items</CardHeader>
+      <CardHeader fontSize={{ base: "sm", md: "md" }}>Review Items</CardHeader>
 
       <CardBody>
-        {checkout.map(item => (
-          <Flex align="center" justify="space-between" mb="1rem">
-            <Flex align="center">
-              <Image src={item.mainImage} boxSize="100px" bgSize="contain" />
-              <Box mx="1rem" maxW="50%">
+        {checkout.map((item, index) => (
+          <Flex
+            key={index} // Add a key for list rendering
+            align="center"
+            justify="space-between"
+            mb="1rem"
+            direction={{ base: "column", md: "row" }} // Stack vertically on mobile
+          >
+            <Flex align="center" w={{ base: "100%", md: "auto" }}>
+              <Image
+                src={item.mainImage}
+                boxSize={{ base: "80px", md: "100px" }} // Smaller image on mobile
+                bgSize="contain"
+              />
+              <Box mx={{ base: "0.5rem", md: "1rem" }} maxW={{ base: "70%", md: "50%" }}>
                 <Text
                   maxW="500px"
                   fontWeight="bold"
-                  fontSize={{ base: "md", lg: "lg" }}
-                  noOfLines={2}>
+                  fontSize={{ base: "sm", md: "md", lg: "lg" }} // Smaller font on mobile
+                  noOfLines={2}
+                >
                   {item.name}
                 </Text>
 
-                <Text color="gray.500" noOfLines={1}>
+                <Text color="gray.500" noOfLines={1} fontSize={{ base: "xs", md: "sm" }}>
                   {item.description}
                 </Text>
               </Box>
             </Flex>
 
-            <Box textAlign="right">
-              <Text fontWeight="bold" fontSize={{ base: "md", lg: "lg" }}>
-                $ {item.price}
+            <Box
+              textAlign={{ base: "left", md: "right" }} // Align left on mobile
+              mt={{ base: 2, md: 0 }} // Add margin top on mobile
+              w={{ base: "100%", md: "auto" }}
+            >
+              <Text fontWeight="bold" fontSize={{ base: "sm", md: "md", lg: "lg" }}>
+                Ghs {item.price}
               </Text>
-              <Flex fontSize={{ base: "sm", lg: "md" }} gap="0 5px">
+              <Flex fontSize={{ base: "xs", md: "sm", lg: "md" }} gap="0 5px">
                 <Text>Quantity:</Text>
                 <Text as="span">{item.count.toFixed(2)}</Text>
               </Flex>

@@ -66,7 +66,7 @@ function ProductDetails({ product }: IProductDetailsProps) {
           <Raiting rating={product.rating} />
 
           <Text fontWeight="bold" fontSize="2rem">
-            $ {product.price}
+            Ghs {product.price}
           </Text>
           <Divider my="1rem" />
           <Quantity
