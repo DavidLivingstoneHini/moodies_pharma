@@ -14,7 +14,15 @@ import {
   RadioGroup,
   Stack,
   Text,
-  VStack,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  ModalCloseButton,
+  useDisclosure,
+  Image,
 } from "@chakra-ui/react"
 import { useState, useRef } from "react"
 
@@ -26,6 +34,9 @@ function PaymentDetails() {
   const total = useRef(calculateItemsTotalPrice(checkout))
   const tax = total.current * 0.1
 
+  // Modal state
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
   return (
     <Card>
       <CardHeader fontSize={{ base: "sm", md: "md" }}>Payment Details</CardHeader>
@@ -34,7 +45,7 @@ function PaymentDetails() {
         <Stack spacing={4}>
           {/* Coupon Input and Button */}
           <Flex
-            direction={{ base: "column", md: "row" }} // Stack vertically on mobile
+            direction={{ base: "column", md: "row" }}
             align={{ base: "stretch", md: "center" }}
             justify="space-between"
           >
@@ -42,13 +53,13 @@ function PaymentDetails() {
               type="text"
               placeholder="Enter Coupon Code"
               rounded="full"
-              mb={{ base: 2, md: 0 }} // Add margin bottom on mobile
+              mb={{ base: 2, md: 0 }}
             />
             <Button
               bgColor="brand.primary"
               color="white"
               rounded="full"
-              px={{ base: "1rem", md: "2rem" }} // Adjust padding for mobile
+              px={{ base: "1rem", md: "2rem" }}
               _hover={{ bgColor: "brand.primaryDark" }}
               _active={{ bgColor: "brand.primaryDark" }}
             >
@@ -75,7 +86,7 @@ function PaymentDetails() {
           {/* Totals Section */}
           <Box>
             <Flex
-              direction={{ base: "column", md: "row" }} // Stack vertically on mobile
+              direction={{ base: "column", md: "row" }}
               justify="space-between"
               align="center"
               my="1rem"
@@ -85,7 +96,7 @@ function PaymentDetails() {
             </Flex>
 
             <Flex
-              direction={{ base: "column", md: "row" }} // Stack vertically on mobile
+              direction={{ base: "column", md: "row" }}
               justify="space-between"
               align="center"
               my="1rem"
@@ -95,7 +106,7 @@ function PaymentDetails() {
             </Flex>
 
             <Flex
-              direction={{ base: "column", md: "row" }} // Stack vertically on mobile
+              direction={{ base: "column", md: "row" }}
               justify="space-between"
               align="center"
               my="1rem"
@@ -105,7 +116,7 @@ function PaymentDetails() {
             </Flex>
 
             <Flex
-              direction={{ base: "column", md: "row" }} // Stack vertically on mobile
+              direction={{ base: "column", md: "row" }}
               justify="space-between"
               align="center"
               my="1rem"
@@ -115,7 +126,7 @@ function PaymentDetails() {
             </Flex>
             <Divider />
             <Flex
-              direction={{ base: "column", md: "row" }} // Stack vertically on mobile
+              direction={{ base: "column", md: "row" }}
               justify="space-between"
               align="center"
               my="1rem"
@@ -137,11 +148,51 @@ function PaymentDetails() {
             _active={{
               bgColor: "brand.primaryDark",
             }}
+            onClick={onOpen} // Open the modal on click
           >
             Pay Ghs{total.current.toFixed(2)}
           </Button>
         </Stack>
       </CardBody>
+
+      {/* Confirmation Modal */}
+      <Modal isOpen={isOpen} onClose={onClose} isCentered>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Order Confirmed Successfully!</ModalHeader>
+          <ModalCloseButton /> {/* Button to close the modal */}
+          <ModalBody>
+            <Flex direction="column" align="center" justify="center">
+              <Image
+                src="/success.jpg" // Path to your success GIF in the public folder
+                alt="Order Confirmed"
+                boxSize="200px"
+                objectFit="cover"
+              />
+              <Text mt={4} textAlign="center" fontSize="lg" fontWeight="bold">
+                Thank you for your purchase!
+              </Text>
+            </Flex>
+          </ModalBody>
+          <ModalFooter>
+            <Button
+              bgColor="brand.primary"
+              color="white"
+              w="100%"
+              rounded="full"
+              _hover={{
+                bgColor: "brand.primaryDark",
+              }}
+              _active={{
+                bgColor: "brand.primaryDark",
+              }}
+              onClick={onClose} // Close the modal
+            >
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Card>
   )
 }
