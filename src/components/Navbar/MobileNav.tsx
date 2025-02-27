@@ -13,7 +13,7 @@ function MobileNav({ }) {
         <Box>
           <MobileNavMenu />
         </Box>
-        <Box w="100px" h="auto">
+        <Box w="80px" h="auto">
           <AppLogo />
         </Box>
 
