@@ -164,7 +164,7 @@ function PaymentDetails() {
           <ModalBody>
             <Flex direction="column" align="center" justify="center">
               <Image
-                src="/success.jpg" // Path to your success GIF in the public folder
+                src="/success.jpg"
                 alt="Order Confirmed"
                 boxSize="200px"
                 objectFit="cover"
