@@ -103,7 +103,8 @@ function DesktopNav() {
         </Flex>
 
         {/* Condensed information for mobile screens */}
-        <Flex display={{ base: "flex", md: "none" }} justifyContent="space-between" width="100%">
+        {/* Condensed information for mobile screens */}
+        <Flex display={{ base: "flex", md: "none" }} justifyContent="space-between" width="100%" flexDirection="column" align="center">
           <Link href="mailto:moodieschemists@gmail.com" _hover={{ textDecoration: 'none', color: 'gray.100' }}>
             <Flex align="center">
               <Icon as={FaEnvelope} mr={1} />

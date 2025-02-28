@@ -3,15 +3,16 @@ import { BoxProps, FlexProps, HeadingProps, LinkProps, TextProps, HTMLChakraProp
 export const bannerStyles: FlexProps = {
   justify: "center",
   align: "center",
-  gap: { base: "4", lg: "8" }, // Increased gap for better spacing
-  direction: { base: "column", lg: "row" }, // Stack vertically on mobile, row on desktop
-  w: { base: "100%", lg: "90%" }, // Full width on mobile, 90% on desktop
-  mx: "auto", // Center the banner
-  p: { base: "1rem", lg: "2rem" }, // Adjusted padding for responsiveness
-  bg: "brand.lightBackground", // Add a light background color
-  borderRadius: "xl", // Rounded corners for the banner
-  boxShadow: "lg", // Subtle shadow for depth
-  textAlign: { base: "center", lg: "left" }, // Center text on mobile, left-align on desktop
+  gap: { base: "4", lg: "8" },
+  direction: { base: "column", lg: "row" },
+  w: { base: "100%", lg: "90%" },
+  mx: "auto",
+  p: { base: "1rem", lg: "2rem" },
+  bg: "brand.lightBackground",
+  borderRadius: "xl",
+  boxShadow: "lg",
+  textAlign: { base: "center", lg: "left" },
+  mt: { base: "2rem", lg: "4rem" }, // Add margin-top here
 }
 
 export const bannerHeadingStyles: HeadingProps = {
