@@ -103,8 +103,14 @@ function DesktopNav() {
         </Flex>
 
         {/* Condensed information for mobile screens */}
-        {/* Condensed information for mobile screens */}
         <Flex display={{ base: "flex", md: "none" }} justifyContent="space-between" width="100%" flexDirection="column" align="center">
+        <Link href="tel:+233208360510" _hover={{ textDecoration: 'none', color: 'gray.100' }}>
+            <Flex align="center" mx={2}>
+              <Icon as={FaPhone} mr={1} />
+              <Text fontSize="xs" display={{ base: "block", sm: "block" }}>+233 20836 0510</Text>
+            </Flex>
+          </Link>
+          
           <Link href="mailto:moodieschemists@gmail.com" _hover={{ textDecoration: 'none', color: 'gray.100' }}>
             <Flex align="center">
               <Icon as={FaEnvelope} mr={1} />
@@ -112,12 +118,7 @@ function DesktopNav() {
             </Flex>
           </Link>
 
-          <Link href="tel:+233208360510" _hover={{ textDecoration: 'none', color: 'gray.100' }}>
-            <Flex align="center" mx={2}>
-              <Icon as={FaPhone} mr={1} />
-              <Text fontSize="xs" display={{ base: "block", sm: "block" }}>+233 20836 0510</Text>
-            </Flex>
-          </Link>
+        
         </Flex>
       </Flex>
 
@@ -140,22 +141,23 @@ function DesktopNav() {
           borderBottom="1px"
           borderColor="gray.200"
         >
-          <Box>
+          <Flex>
+           
+           <IconButton
+             icon={<HamburgerIcon />}
+             variant="ghost"
+             onClick={onOpen}
+             aria-label="Open navigation"
+           />
+         </Flex>
+
+          <Box w={"60px"} h={"30px"} mr={"10px"}>
             <AppLogo />
           </Box>
 
-          <Flex>
-            <Box>
+          <Box>
               <Search />
             </Box>
-            <IconButton
-              icon={<HamburgerIcon />}
-              variant="ghost"
-              onClick={onOpen}
-              aria-label="Open navigation"
-              ml={4}
-            />
-          </Flex>
         </Flex>
 
         {/* Top section with Logo, Search, Login, Cart, Wishlist */}
