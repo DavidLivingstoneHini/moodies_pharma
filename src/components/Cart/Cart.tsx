@@ -46,7 +46,7 @@ function Cart() {
     <>
       <Button ref={btnRef} onClick={onOpen} {...cartButtonStyles}>
         <BsCart4 />
-        <Text>Cart</Text>
+        {/* <Text>Cart</Text> */}
         {cart.length > 0 && (
           <Flex {...notificationItemsCount}>{cart.length}</Flex>
         )}

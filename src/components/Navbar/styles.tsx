@@ -6,25 +6,22 @@ export const navbarStyles: BoxProps = {
   bgColor: "white",
   mb: "1rem",
   zIndex: 10,
-  boxShadow: "sm", // Add a subtle shadow for depth
+  boxShadow: "lg",
 }
 
 export const desktopNavStyles: FlexProps = {
   justify: "space-between",
   align: "center",
-  px: { base: "1rem", lg: "2rem" }, // Adjusted padding for responsiveness
-  py: "1rem",
-  borderBottomWidth: "1px",
-  borderColor: "gray.200",
-  display: { base: "none", lg: "flex" },
-  maxW: "1440px", // Limit the max width for better alignment on large screens
-  mx: "auto", // Center the navbar
+  px: { base: "1rem", lg: "2rem" },
+  py: "0.75rem",
+  maxW: "1440px",
+  mx: "auto", 
+  width: "100%",
 }
 
 export const logoSectionStyles: StackProps = {
   direction: "row",
-  gap: 8, // Increased gap for better spacing
-  flex: 1,
+  gap: 4,
   align: "center",
 }
 
@@ -32,6 +29,16 @@ export const cartSectionStyles: StackProps = {
   direction: "row",
   gap: 6,
   align: "center",
+}
+
+export const navItemStyles: BoxProps = {
+  px: 4,
+  py: 2,
+  fontWeight: "600",
+  fontSize: "sm",
+  letterSpacing: "wider",
+  color: "gray.700",
+  transition: "all 0.2s ease",
 }
 
 export const mobileNavContainerStyles: FlexProps = {
@@ -51,3 +58,12 @@ export const mobileSearchWrapper: BoxProps = {
   display: { base: "flex", lg: "none" },
 }
 
+export const topBannerStyles: FlexProps = {
+  bg: "green.500",
+  color: "white",
+  py: 2,
+  px: { base: 4, md: 8 },
+  fontSize: "sm",
+  justifyContent: "space-between",
+  width: "100%",
+}

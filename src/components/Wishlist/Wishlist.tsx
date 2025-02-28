@@ -38,7 +38,7 @@ function Wishlist() {
           _hover={{ bgColor: "transparent" }}
           color="brand.primary">
           <BsHeart />
-          <Text>Wishlist</Text>
+          {/* <Text>Wishlist</Text> */}
 
           {wishlist.length > 0 && (
             <Flex {...notificationItemsCount}>{wishlist.length}</Flex>
