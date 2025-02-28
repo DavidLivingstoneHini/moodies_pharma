@@ -34,6 +34,7 @@ function GridProducts({ products }: IGridProductsProps) {
         flexWrap={"wrap"}
         w={{ base: "100%", lg: "90%" }}
         mx="auto"
+        mt={{ base: "2rem", lg: "6rem" }}
         gap="1rem"
         justify={{ base: "center", lg: "space-between" }}>
         {visibleProduct.map(product => (

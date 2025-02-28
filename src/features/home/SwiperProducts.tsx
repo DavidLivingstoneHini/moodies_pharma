@@ -43,7 +43,8 @@ function SwiperProducts({ title, products }: Props) {
   }
 
   return (
-    <Box w={{ base: "100%", lg: "90%" }} mx="auto" px={{ base: "1rem", md: "2rem" }}>
+    <Box w={{ base: "100%", lg: "90%" }} mx="auto" px={{ base: "1rem", md: "2rem" }} mt={{ base: "2rem", lg: "6rem" }}
+    >
       <SectionHeading title={title} />
       <Swiper {...sliderSettings} style={{ width: "100%", height: "100%" }}>
         {products.map(product => (

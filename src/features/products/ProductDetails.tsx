@@ -55,6 +55,7 @@ function ProductDetails({ product }: IProductDetailsProps) {
         templateColumns={{ base: "repeat(1, 1fr)", lg: "repeat(2, 1fr)" }}
         w={{ base: "100%", lg: "90%" }}
         mx="auto"
+        mt={{ base: "2rem", lg: "6rem" }}
         p="2rem"
         gap="20">
         <GridItem>

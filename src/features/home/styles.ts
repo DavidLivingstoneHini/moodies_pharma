@@ -12,7 +12,7 @@ export const bannerStyles: FlexProps = {
   borderRadius: "xl",
   boxShadow: "lg",
   textAlign: { base: "center", lg: "left" },
-  mt: { base: "2rem", lg: "4rem" }, // Add margin-top here
+  mt: { base: "2rem", lg: "6rem" }, // Add margin-top here
 }
 
 export const bannerHeadingStyles: HeadingProps = {

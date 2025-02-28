@@ -21,6 +21,7 @@ function CustomBreadcrumb({ items = [] }: ICustomBreadcrumbProps) {
         separator={<ChevronRightIcon color="gray.500" />}
         w={{ base: "100%", lg: "90%" }}
         mx="auto"
+        mt={{ base: "2rem", lg: "6rem" }}
         py="2rem"
         px="1rem"
         fontSize={{ base: "xs", md: "md" }}>

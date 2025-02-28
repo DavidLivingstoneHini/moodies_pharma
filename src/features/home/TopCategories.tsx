@@ -18,7 +18,7 @@ interface Props {
 
 function TopCategories({ categories }: Props) {
   return (
-    <Box w={{ base: "100%", lg: "90%" }} mx="auto" px="2rem">
+    <Box w={{ base: "100%", lg: "90%" }} mx="auto" px="2rem" mt={{ base: "2rem", lg: "6rem" }}>
       <SectionHeading title="Show Our Top Categories" />
 
       <Grid
