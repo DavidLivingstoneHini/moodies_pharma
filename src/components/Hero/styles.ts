@@ -10,6 +10,7 @@ export const heroCardStyles: CardProps = {
   mx: "auto",
   p: "2rem",
   mb: "2rem",
+  mt: { base: "2rem", lg: "4rem" },
 }
 
 export const heroImageStyles: ImageProps = {

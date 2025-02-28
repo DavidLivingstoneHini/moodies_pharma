@@ -54,7 +54,7 @@ function DesktopNav() {
     { label: "NEWS", href: "/news" },
     { label: "CONTACT", href: "/contact" },
     { label: "PRODUCTS", href: "/products" },
-    { label: "ALL CATEGORIES", href: "/products" }
+    { label: "ALL CATEGORIES", href: "/categories" }
   ];
 
   // About dropdown items
