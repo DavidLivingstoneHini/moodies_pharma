@@ -167,7 +167,7 @@ function DesktopNav() {
           py="0.75rem"
           display={{ base: "none", lg: "flex" }}
         >
-          <Box flex="1" display="flex" alignItems="center">
+          <Box flex="1" display="flex" alignItems="center" w={{base: "50px", md: "100px"}}>
             <AppLogo />
           </Box>
 
