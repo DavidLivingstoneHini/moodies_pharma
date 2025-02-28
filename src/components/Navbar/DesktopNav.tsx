@@ -367,7 +367,7 @@ function DesktopNav() {
               ))}
             </VStack>
 
-            <Link href="/authPage" onClick={onClose} _hover={{ textDecoration: 'none' }}>
+            <Link href="/auth" onClick={onClose} _hover={{ textDecoration: 'none' }}>
               <Button
                 leftIcon={<FaUser />}
                 colorScheme="green"
