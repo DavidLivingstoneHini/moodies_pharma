@@ -61,9 +61,9 @@ function AboutUsPage() {
 
     // Team members
     const teamMembers = [
-        { name: "John Doe", position: "Pharmacist", image: "/api/placeholder/300/300" },
-        { name: "Jane Smith", position: "Customer Care", image: "/api/placeholder/300/300" },
-        { name: "Mark Lee", position: "Manager", image: "/api/placeholder/300/300" }
+        { name: "John Doe", position: "Pharmacist", image: "/about3.jpg" },
+        { name: "Jane Smith", position: "Customer Care", image: "/about6.jpg" },
+        { name: "Mark Lee", position: "Manager", image: "/about1.jpg" }
     ];
 
     return (
@@ -123,7 +123,7 @@ function AboutUsPage() {
                         variants={fadeIn}
                     >
                         <Image
-                            src="/api/placeholder/600/400"
+                            src="/about.jpg"
                             alt="Pharmacy Store"
                             borderRadius="lg"
                             boxShadow="xl"
@@ -236,7 +236,7 @@ function AboutUsPage() {
                         variants={fadeIn}
                     >
                         <Image
-                            src="/api/placeholder/600/400"
+                            src="/about1.jpg"
                             alt="Our Story"
                             borderRadius="lg"
                             boxShadow="xl"

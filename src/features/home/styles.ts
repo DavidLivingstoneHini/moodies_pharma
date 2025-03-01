@@ -49,7 +49,7 @@ export const bannerImageStyles: HTMLChakraProps<"img"> = {
   as: "img",
   mx: { base: "0", lg: "2rem" }, // Remove horizontal margin on mobile
   boxSize: { base: "300px", sm: "300px", lg: "600px" }, // Responsive image size
-  src: "pharmd.jpg",
+  src: "about6.jpg",
   borderRadius: "lg", // Rounded corners for the image
   boxShadow: "md", // Subtle shadow for the image
   objectFit: "cover", // Ensure the image covers the box nicely

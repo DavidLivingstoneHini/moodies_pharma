@@ -9,27 +9,27 @@ const services = [
     {
         title: "Consultation Services",
         description: "Get professional health consultations from our experienced pharmacists.",
-        image: "/bgpharm.jpg" // Replace with actual image path in public folder
+        image: "/services.jpg" // Replace with actual image path in public folder
     },
     {
         title: "Medication Management",
         description: "We help you manage your medications effectively to ensure optimal health.",
-        image: "/images/medication_management.jpg" // Replace with actual image path in public folder
+        image: "/services2.png" // Replace with actual image path in public folder
     },
     {
         title: "Health Screenings",
         description: "Regular health screenings to monitor your health status and prevent diseases.",
-        image: "/images/health_screening.jpg" // Replace with actual image path in public folder
+        image: "/services3.png" // Replace with actual image path in public folder
     },
     {
         title: "Vaccination Services",
         description: "Stay protected with our vaccination services for various diseases.",
-        image: "/images/vaccination.jpg" // Replace with actual image path in public folder
+        image: "/services.jpg" // Replace with actual image path in public folder
     },
     {
         title: "Nutritional Counseling",
         description: "Receive personalized nutritional advice to maintain a healthy lifestyle.",
-        image: "/images/nutrition_counseling.jpg" // Replace with actual image path in public folder
+        image: "/services2.png" // Replace with actual image path in public folder
     },
 ];
 
