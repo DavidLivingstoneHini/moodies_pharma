@@ -49,7 +49,7 @@ function DesktopNav() {
 
   const navItems = [
     { label: "HOME", href: "/" },
-    { label: "ABOUT", href: "/about", hasDropdown: true },
+    { label: "ABOUT", href: "", hasDropdown: true },
     { label: "SERVICES", href: "/services" },
     { label: "NEWS", href: "/news" },
     { label: "CONTACT", href: "/contact" },
@@ -59,10 +59,9 @@ function DesktopNav() {
 
   // About dropdown items
   const aboutDropdownItems = [
-    { label: "Our Story", href: "/about/our-story" },
-    { label: "Team", href: "/about/team" },
-    { label: "Mission & Vision", href: "/about/mission" },
-    { label: "Careers", href: "/about/careers" }
+    { label: "About Us", href: "/about" },
+    { label: "Why Choose Us", href: "/about" },
+    { label: "FAQ'S", href: "/faq" }
   ];
 
   return (
@@ -82,12 +81,12 @@ function DesktopNav() {
       >
         {/* Left side content - Full information on larger screens */}
         <Flex display={{ base: "none", md: "flex" }}>
-          <Link href="mailto:moodieschemists@gmail.com" _hover={{ textDecoration: 'none', color: 'gray.100' }}>
+          {/* <Link href="mailto:moodieschemists@gmail.com" _hover={{ textDecoration: 'none', color: 'gray.100' }}> */}
             <Flex align="center" mr={6}>
               <Icon as={FaEnvelope} mr={2} />
               <Text>moodieschemists@gmail.com</Text>
             </Flex>
-          </Link>
+          {/* </Link> */}
 
           <Link href="tel:+233208360510" _hover={{ textDecoration: 'none', color: 'gray.100' }}>
             <Flex align="center" mr={6}>
@@ -104,19 +103,19 @@ function DesktopNav() {
 
         {/* Condensed information for mobile screens */}
         <Flex display={{ base: "flex", md: "none" }} justifyContent="space-between" width="100%" flexDirection="column" align="center">
-        <Link href="tel:+233208360510" _hover={{ textDecoration: 'none', color: 'gray.100' }}>
+        {/* <Link href="tel:+233208360510" _hover={{ textDecoration: 'none', color: 'gray.100' }}> */}
             <Flex align="center" mx={2}>
               <Icon as={FaPhone} mr={1} />
               <Text fontSize="xs" display={{ base: "block", sm: "block" }}>+233 20836 0510</Text>
             </Flex>
-          </Link>
+          {/* </Link> */}
           
-          <Link href="mailto:moodieschemists@gmail.com" _hover={{ textDecoration: 'none', color: 'gray.100' }}>
+          {/* <Link href="mailto:moodieschemists@gmail.com" _hover={{ textDecoration: 'none', color: 'gray.100' }}> */}
             <Flex align="center">
               <Icon as={FaEnvelope} mr={1} />
               <Text fontSize="xs" display={{ base: "block", sm: "block" }}>moodieschemists@gmail.com</Text>
             </Flex>
-          </Link>
+          {/* </Link> */}
 
         
         </Flex>
