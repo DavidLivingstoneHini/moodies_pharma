@@ -4,6 +4,8 @@ import TopCategories from "@/features/home/TopCategories"
 import { client } from "../../../utils/sanity.client"
 import { groq } from "next-sanity"
 import { IItems } from "@/models"
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const getItemsQuery = groq`*[_type == "featuredProductsAndCategories"]
 {
@@ -55,16 +57,16 @@ export default async function Home() {
   return (
     <div>
       <Banner />
-      <TopCategories categories={items.topCategories} />
+      {/* <TopCategories categories={items.topCategories} /> */}
       <SwiperProducts title="Best Deals For You" products={items.bestDeals} />
       <SwiperProducts
         title="Most Selling Products"
         products={items.mostSellingProducts}
       />
-      <SwiperProducts
+      {/* <SwiperProducts
         title="Trending Products"
         products={items.trendingProducts}
-      />
+      /> */}
     </div>
   )
 }

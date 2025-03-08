@@ -7,28 +7,28 @@ const MotionBox = motion(Box);
 
 const services = [
     {
-        title: "Consultation Services",
-        description: "Get professional health consultations from our experienced pharmacists.",
+        title: "Specialty Pharmacy | Counseling",
+        description: "Receive expert counseling and advice from licensed pharmacists to manage complex medication regimens and improve health outcomes.",
         image: "/services.jpg" // Replace with actual image path in public folder
     },
     {
-        title: "Medication Management",
-        description: "We help you manage your medications effectively to ensure optimal health.",
+        title: "Cosmetics | Beauty | Lifestyle & Wellness",
+        description: "Explore our range of beauty and wellness services, from skincare to personalized wellness routines to help you feel your best.",
         image: "/services2.png" // Replace with actual image path in public folder
     },
     {
-        title: "Health Screenings",
-        description: "Regular health screenings to monitor your health status and prevent diseases.",
+        title: "Massage Therapy | Weight Management",
+        description: "Relax and rejuvenate with our professional massage therapy services, and take control of your health with personalized weight management programs.",
         image: "/services3.png" // Replace with actual image path in public folder
     },
     {
-        title: "Vaccination Services",
-        description: "Stay protected with our vaccination services for various diseases.",
+        title: "Reflexology | Health Screening",
+        description: "Benefit from holistic reflexology treatments designed to enhance wellness, and stay proactive with regular health screenings for early detection.",
         image: "/services.jpg" // Replace with actual image path in public folder
     },
     {
-        title: "Nutritional Counseling",
-        description: "Receive personalized nutritional advice to maintain a healthy lifestyle.",
+        title: "Home Deliveries | Online Service",
+        description: "Enjoy the convenience of having medications and health supplies delivered directly to your door, with easy online ordering and prompt service.",
         image: "/services2.png" // Replace with actual image path in public folder
     },
 ];

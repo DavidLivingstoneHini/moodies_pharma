@@ -9,6 +9,8 @@ import {
   Stack,
   Text,
   VisuallyHidden,
+  VStack,
+  useBreakpointValue,
 } from "@chakra-ui/react"
 import { ReactNode } from "react"
 import { BiMailSend } from "react-icons/bi"
@@ -56,61 +58,57 @@ const ListHeader = ({ children }: { children: ReactNode }) => {
 
 export const Footer = () => {
   return (
-    <Box bg="pink.50" color="gray.700" mt="2rem">
-      <Container as={Stack} maxW={"6xl"} py={10}>
+    <Box bg="pink.100" color="gray.700" mt="2rem" py={{ base: 6, md: 10 }}>
+      <Container as={Stack} maxW={"8xl"}>
         <SimpleGrid
-          templateColumns={{ sm: "1fr 1fr", md: "2fr 1fr 1fr 2fr" }}
-          spacing={8}>
+          templateColumns={{ sm: "1fr", md: "2fr 1fr 1fr 2fr" }}
+          spacing={{ base: 8, md: 16 }}>
           <Stack spacing={6}>
             <Box>
               <AppLogo />
+              <Text fontSize="sm" mt={3}>
+                Moodies Chemist is one of the best pharmacies in Ghana. <br /> We are a leading Retail and Wholesale pharmaceutical company.
+              </Text>
             </Box>
             <Text fontSize="sm">© 2025 Moodies Chemist. All rights reserved</Text>
-            <Stack direction="row" spacing={6}>
-              <SocialButton label="Twitter" href={"#"}>
-                <FaTwitter />
-              </SocialButton>
-              <SocialButton label="Facebook" href={"#"}>
-                <FaFacebook />
-              </SocialButton>
-              <SocialButton label="Instagram" href={"#"}>
-                <FaInstagram />
-              </SocialButton>
-            </Stack>
           </Stack>
+
           <Stack align="flex-start">
-            <ListHeader>Company</ListHeader>
-            <Link href={"#"}>About us</Link>
-            <Link href={"#"}>Contact us</Link>
-            <Link href={"#"}>Testimonials</Link>
+            <ListHeader>Information</ListHeader>
+            <Link href={"#"}>Terms & Conditions</Link>
+            <Link href={"#"}>Privacy Policy</Link>
+            <Link href={"#"}>FAQ</Link>
           </Stack>
+
           <Stack align="flex-start">
             <ListHeader>Support</ListHeader>
-            <Link href={"#"}>Help Center</Link>
-            <Link href={"#"}>Terms of Service</Link>
-            <Link href={"#"}>Privacy Policy</Link>
+            <Link href={"#"}>Delivery Information</Link>
+            <Link href={"#"}>Contact Us</Link>
+            <Link href={"#"}>Site Map</Link>
           </Stack>
-          <Stack align="flex-start">
-            <ListHeader>Get the best deals</ListHeader>
-            <Stack direction={"row"}>
-              <Input
-                placeholder="Your email address"
-                bg="blackAlpha.100"
-                border={0}
-                _focus={{
-                  bg: "whiteAlpha.300",
-                }}
-              />
-              <IconButton
-                bg="brand.primary"
-                color="white"
-                _hover={{
-                  bg: "brand.primaryDark",
-                }}
-                aria-label="Subscribe"
-                icon={<BiMailSend />}
-              />
-            </Stack>
+
+          <Stack align="flex-start" spacing={4}>
+            <ListHeader>Follow Us</ListHeader>
+            <VStack align="flex-start" spacing={3}>
+              <Stack direction="row" spacing={3} align="center">
+                <SocialButton label="Twitter" href={"#"}>
+                  <FaTwitter />
+                </SocialButton>
+                <Text>Twitter</Text>
+              </Stack>
+              <Stack direction="row" spacing={3} align="center">
+                <SocialButton label="Facebook" href={"#"}>
+                  <FaFacebook />
+                </SocialButton>
+                <Text>Facebook</Text>
+              </Stack>
+              <Stack direction="row" spacing={3} align="center">
+                <SocialButton label="Instagram" href={"#"}>
+                  <FaInstagram />
+                </SocialButton>
+                <Text>Instagram</Text>
+              </Stack>
+            </VStack>
           </Stack>
         </SimpleGrid>
       </Container>

@@ -7,6 +7,7 @@ import { theme } from "../theme"
 import Navbar from "@/components/Navbar/Navbar"
 import { AppContextProvider } from "@/context/AppContext"
 import { Footer } from "@/components/Footer"
+import WhatsAppButton from "@/components/WhatsAppButton"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -26,6 +27,7 @@ export default function RootLayout({
             <AppContextProvider>
               <Navbar />
               {children}
+              <WhatsAppButton />
               <Footer />
             </AppContextProvider>
           </ChakraProvider>

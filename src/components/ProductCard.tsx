@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react"
+import { Box } from "@chakra-ui/react";
 import {
   Card,
   CardBody,
@@ -7,26 +7,44 @@ import {
   Heading,
   Stack,
   Text,
-} from "@chakra-ui/react"
-import Raiting from "./Raiting"
-import AddTocartButton from "./AddTocartButton"
-import { IProduct } from "@/models"
-import AddWishlistButton from "./AddWishlistButton"
-import { Link } from "@chakra-ui/next-js"
+  useColorModeValue,
+} from "@chakra-ui/react";
+import Raiting from "./Raiting";
+import AddTocartButton from "./AddTocartButton";
+import { IProduct } from "@/models";
+import AddWishlistButton from "./AddWishlistButton";
+import { Link } from "@chakra-ui/next-js";
 
 interface Props {
-  product: IProduct
+  product: IProduct;
 }
 
 function ProductCard({ product }: Props) {
-  const { description, mainImage, price, name, rating, slug } = product
+  const { description, mainImage, price, name, rating, slug } = product;
+
+  // Define border and hover colors based on the theme (light/dark mode)
+  const borderColor = useColorModeValue("gray.200", "gray.600");
+  const hoverBorderColor = useColorModeValue("blue.500", "blue.200");
 
   return (
-    <Card maxW="sm">
+    <Card
+      maxW="sm"
+      borderWidth="1px" // Add a visible border
+      borderColor={borderColor} // Set border color
+      borderRadius="lg" // Rounded corners
+      overflow="hidden" // Ensure content doesn't overflow
+      transition="all 0.3s ease" // Smooth transition for hover effects
+      _hover={{
+        borderColor: hoverBorderColor, // Change border color on hover
+        transform: "scale(1.02)", // Slightly scale up on hover
+        boxShadow: "lg", // Add a shadow on hover
+      }}
+    >
       <Link
         href={`/products/${slug}`}
         cursor="default"
-        _hover={{ textDecor: "none", cursor: "default" }}>
+        _hover={{ textDecor: "none", cursor: "default" }}
+      >
         <CardBody pos="relative">
           <AddWishlistButton product={product} />
           <Box
@@ -48,7 +66,8 @@ function ProductCard({ product }: Props) {
                   color="brand.primary"
                   fontWeight="bold"
                   as="span"
-                  fontSize="lg">
+                  fontSize="lg"
+                >
                   {price}
                 </Text>
               </Flex>
@@ -63,7 +82,7 @@ function ProductCard({ product }: Props) {
         <AddTocartButton product={product} />
       </CardFooter>
     </Card>
-  )
+  );
 }
 
-export default ProductCard
+export default ProductCard;

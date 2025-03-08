@@ -82,18 +82,16 @@ function DesktopNav() {
         {/* Left side content - Full information on larger screens */}
         <Flex display={{ base: "none", md: "flex" }}>
           {/* <Link href="mailto:moodieschemists@gmail.com" _hover={{ textDecoration: 'none', color: 'gray.100' }}> */}
-            <Flex align="center" mr={6}>
-              <Icon as={FaEnvelope} mr={2} />
-              <Text>moodieschemists@gmail.com</Text>
-            </Flex>
+          <Flex align="center" mr={6}>
+            <Icon as={FaEnvelope} mr={2} />
+            <Text>moodieschemists@gmail.com</Text>
+          </Flex>
           {/* </Link> */}
 
-          <Link href="tel:+233208360510" _hover={{ textDecoration: 'none', color: 'gray.100' }}>
-            <Flex align="center" mr={6}>
-              <Icon as={FaPhone} mr={2} />
-              <Text>+233 (208) 36 0510</Text>
-            </Flex>
-          </Link>
+          <Flex align="center" mr={6}>
+            <Icon as={FaPhone} mr={2} />
+            <Text>+233 (208) 36 0510</Text>
+          </Flex>
 
           <Flex align="center">
             <Icon as={FaClock} mr={2} />
@@ -103,21 +101,21 @@ function DesktopNav() {
 
         {/* Condensed information for mobile screens */}
         <Flex display={{ base: "flex", md: "none" }} justifyContent="space-between" width="100%" flexDirection="column" align="center">
-        {/* <Link href="tel:+233208360510" _hover={{ textDecoration: 'none', color: 'gray.100' }}> */}
-            <Flex align="center" mx={2}>
-              <Icon as={FaPhone} mr={1} />
-              <Text fontSize="xs" display={{ base: "block", sm: "block" }}>+233 20836 0510</Text>
-            </Flex>
-          {/* </Link> */}
-          
-          {/* <Link href="mailto:moodieschemists@gmail.com" _hover={{ textDecoration: 'none', color: 'gray.100' }}> */}
-            <Flex align="center">
-              <Icon as={FaEnvelope} mr={1} />
-              <Text fontSize="xs" display={{ base: "block", sm: "block" }}>moodieschemists@gmail.com</Text>
-            </Flex>
+          {/* <Link href="tel:+233208360510" _hover={{ textDecoration: 'none', color: 'gray.100' }}> */}
+          <Flex align="center" mx={2}>
+            <Icon as={FaPhone} mr={1} />
+            <Text fontSize="xs" display={{ base: "block", sm: "block" }}>+233 20836 0510</Text>
+          </Flex>
           {/* </Link> */}
 
-        
+          {/* <Link href="mailto:moodieschemists@gmail.com" _hover={{ textDecoration: 'none', color: 'gray.100' }}> */}
+          <Flex align="center">
+            <Icon as={FaEnvelope} mr={1} />
+            <Text fontSize="xs" display={{ base: "block", sm: "block" }}>moodieschemists@gmail.com</Text>
+          </Flex>
+          {/* </Link> */}
+
+
         </Flex>
       </Flex>
 
@@ -141,22 +139,22 @@ function DesktopNav() {
           borderColor="gray.200"
         >
           <Flex>
-           
-           <IconButton
-             icon={<HamburgerIcon />}
-             variant="ghost"
-             onClick={onOpen}
-             aria-label="Open navigation"
-           />
-         </Flex>
+
+            <IconButton
+              icon={<HamburgerIcon />}
+              variant="ghost"
+              onClick={onOpen}
+              aria-label="Open navigation"
+            />
+          </Flex>
 
           <Box w={"60px"} h={"30px"} mr={"10px"}>
             <AppLogo />
           </Box>
 
           <Box>
-              <Search />
-            </Box>
+            <Search />
+          </Box>
         </Flex>
 
         {/* Top section with Logo, Search, Login, Cart, Wishlist */}
@@ -168,7 +166,7 @@ function DesktopNav() {
           py="0.75rem"
           display={{ base: "none", lg: "flex" }}
         >
-          <Box flex="1" display="flex" alignItems="center" w={{base: "50px", md: "100px"}}>
+          <Box flex="1" display="flex" alignItems="center" w={{ base: "50px", md: "100px" }}>
             <AppLogo />
           </Box>
 
