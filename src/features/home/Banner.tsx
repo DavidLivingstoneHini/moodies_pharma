@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import { Box, Flex, Heading, Text, keyframes } from "@chakra-ui/react";
 import {
   bannerButtonStyles,
@@ -16,14 +16,6 @@ const fadeIn = keyframes`
   to { opacity: 1; transform: translateY(0); }
 `;
 
-const sliderContainerStyles = {
-  width: "100%",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  overflow: "hidden", // Prevent any overflow issues
-};
-
 const images = ["about6.jpg", "about3.jpg", "about1.jpg"];
 
 function Banner() {
@@ -36,10 +28,6 @@ function Banner() {
     autoplay: true,
     autoplaySpeed: 3000,
     pauseOnHover: true,
-    adaptiveHeight: true, // Adapt height based on current slide
-    centerMode: false, // Important: disable center mode to avoid width issues
-    arrows: true,
-    cssEase: "linear",
   };
 
   return (
@@ -64,19 +52,15 @@ function Banner() {
       <Box
         w={{ base: "100%", lg: "50%" }}
         animation={`${fadeIn} 1.5s ease-out`}
-        sx={sliderContainerStyles}
       >
-        <Slider
-          {...settings}
-          style={{ width: '100%' }} // Force the slider to take full width
-        >
+        <Slider {...settings}>
           {images.map((image, i) => (
-            <Box key={i} width="100%" padding={{ base: "1rem 0", lg: "1rem" }}>
+            <Box key={i} width="100%">
               <Box
                 as="img"
                 src={image}
                 alt={`Banner Image ${i + 1}`}
-                width="100%"
+                width="100%" // Set width to 100%
                 height={{ base: "300px", sm: "300px", lg: "600px" }}
                 borderRadius="lg"
                 boxShadow="md"
