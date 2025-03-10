@@ -35,7 +35,7 @@ function ProductDetails({ product }: IProductDetailsProps) {
   const [quantity, setQuantity] = useState(0)
   const buttonSize = useBreakpointValue({ base: "sm", md: "md" })
   const buttonWidth = useBreakpointValue({ base: "100%", sm: "auto" })
-  const buttonDirection = useBreakpointValue({ base: "column", sm: "row" }) as "column" | "row"  // Fixed here
+  const buttonDirection = useBreakpointValue({ base: "column", sm: "row" }) as "column" | "row"
 
   const { resetItems, addItem } = useAppContext()
 
@@ -74,41 +74,55 @@ function ProductDetails({ product }: IProductDetailsProps) {
         templateColumns={{ base: "repeat(1, 1fr)", lg: "repeat(2, 1fr)" }}
         w={{ base: "100%", lg: "90%" }}
         mx="auto"
-        p="2rem"
-        gap="20">
+        p={{ base: "1rem", lg: "2rem" }}
+        gap={{ base: "4", lg: "20" }}
+      >
         <GridItem>
-          <Image src={product.mainImage} alt={product.name} />
+          <Image src={product.mainImage} alt={product.name} w="100%" />
         </GridItem>
         <GridItem>
-          <Heading>{product.name}</Heading>
-          <Text>{product.description}</Text>
+          <Heading as="h1" fontSize={{ base: "xl", md: "2xl" }} mb="1rem">
+            {product.name}
+          </Heading>
+          <Text fontSize={{ base: "sm", md: "md" }} mb="1rem">
+            {product.description}
+          </Text>
           {/* <Raiting rating={product.rating} /> */}
 
-          <Text fontWeight="bold" fontSize="2rem">
+          <Text fontWeight="bold" fontSize={{ base: "xl", md: "2rem" }} mb="1rem">
             Ghs {product.price}
           </Text>
           <Divider my="1rem" />
-          <Quantity
-            setQuantity={(valueAsString, valueAsNumber) => {
-              setQuantity(valueAsNumber)
-            }}
-          />
+          <Box mb="1rem">
+            <Quantity
+              setQuantity={(valueAsString, valueAsNumber) => {
+                setQuantity(valueAsNumber)
+              }}
+            />
+          </Box>
           <Divider my="1rem" />
-          <Flex align="center" gap="1rem">
+          <Flex
+            align="center"
+            gap="1rem"
+            flexDirection={buttonDirection}
+            mb="1rem"
+          >
             <LinkButton
               args={{ onClick: () => handleBuyNow() }}
               label="Buy Now"
               href="/checkout"
+              width={buttonWidth}
             />
-            <AddTocartButton product={product} count={quantity} />
+            <AddTocartButton product={product} count={quantity} width={buttonWidth} />
           </Flex>
 
           <Flex
             mt="1rem"
             gap="1rem"
-            flexDirection="row"  // Always horizontal
+            flexDirection={buttonDirection}
             width="100%"
-            flexWrap="wrap"  // Allow wrapping if necessary
+            flexWrap="wrap"
+            mb="1rem"
           >
             <Button
               leftIcon={<Icon as={FaWhatsapp} />}
@@ -120,7 +134,7 @@ function ProductDetails({ product }: IProductDetailsProps) {
               color="white"
               _hover={{ bg: "#128C7E" }}
               size={buttonSize}
-              width={{ base: "auto", sm: "auto" }}  // Full width on mobile, auto on larger screens
+              width={buttonWidth}
               minW="120px"
               maxW={{ base: "100%", sm: "200px" }}
             >
@@ -136,7 +150,7 @@ function ProductDetails({ product }: IProductDetailsProps) {
               color="white"
               _hover={{ bg: "#3367D6" }}
               size={buttonSize}
-              width={{ base: "auto", sm: "auto" }}
+              width={buttonWidth}
               minW="120px"
               maxW={{ base: "100%", sm: "200px" }}
             >
@@ -146,15 +160,19 @@ function ProductDetails({ product }: IProductDetailsProps) {
 
           <Stack py="2rem">
             <Box>
-              <Text fontWeight="bold">Free Delivery</Text>
-              <Link href="#" textDecor="underline" color="gray.500">
-                Enter your postal Code for Delivery Avariability
+              <Text fontWeight="bold" fontSize={{ base: "sm", md: "md" }}>
+                Free Delivery
+              </Text>
+              <Link href="#" textDecor="underline" color="gray.500" fontSize={{ base: "sm", md: "md" }}>
+                Enter your postal Code for Delivery Availability
               </Link>
             </Box>
 
             <Box>
-              <Text fontWeight="bold">Return Delivery</Text>
-              <Text color="gray.500">
+              <Text fontWeight="bold" fontSize={{ base: "sm", md: "md" }}>
+                Return Delivery
+              </Text>
+              <Text color="gray.500" fontSize={{ base: "sm", md: "md" }}>
                 Free 30 Days Delivery Returns{" "}
                 <Link href="#" textDecor="underline">
                   Details

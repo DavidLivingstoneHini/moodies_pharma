@@ -129,39 +129,41 @@ function NewsPage() {
                         ))}
                     </SimpleGrid>
 
-                    {/* Contact Information Section (Bottom with softer gradient) */}
+                    {/* Contact Section */}
                     <MotionBox
-                        bgGradient="linear(to-r, green.200, teal.200)" // A softer gradient
+                        bgGradient={gradientBg}
                         py={5}
-                        px={4}
-                        borderRadius="xl"
-                        mx={{ base: 4, md: 16 }}
+                        px={{ base: 4, md: 4 }} // Adjust padding for mobile view
+                        borderRadius="lg"
+                        mx={{ base: 4, sm: 8, md: 16 }} // Adjust margins to fit mobile screens
                         mb={8}
                         mt={12}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
                     >
-                        <Grid templateColumns={{ base: "1fr", sm: "repeat(3, 1fr)" }} gap={6} textAlign="center" color="white">
+                        <Grid
+                            templateColumns={{ base: "1fr", sm: "1fr", md: "repeat(3, 1fr)" }} // 1 column on mobile, 3 columns on larger screens
+                            gap={6}
+                            textAlign="center"
+                            color="white"
+                        >
                             {/* Contact Boxes */}
                             <Box
                                 p={4}
                                 bg="rgba(255,255,255,0.1)"
-                                borderRadius="xl"
+                                borderRadius="lg"
                                 transition="transform 0.3s ease"
                                 _hover={{ transform: "scale(1.05)" }}
                             >
-                                <Text fontSize="md" textDecoration={"underline"} fontWeight={"bold"}>Email:</Text>
+                                <Text fontSize={{ base: "md", lg: "lg" }} textDecoration={"underline"} fontWeight={"bold"}>Email:</Text>
                                 <Text><a href="mailto:moodieschemists@gmail.com">moodieschemists@gmail.com</a></Text>
                             </Box>
                             <Box
                                 p={4}
                                 bg="rgba(255,255,255,0.1)"
-                                borderRadius="xl"
+                                borderRadius="lg"
                                 transition="transform 0.3s ease"
                                 _hover={{ transform: "scale(1.05)" }}
                             >
-                                <Text fontSize="md" textDecoration={"underline"} fontWeight={"bold"}>WhatsApp & Call Us:</Text>
+                                <Text fontSize={{ base: "md", lg: "lg" }} textDecoration={"underline"} fontWeight={"bold"}>WhatsApp & Call Us:</Text>
                                 <Text>+233 (208) 36 0510</Text>
                                 <Text>+233 (302) 45 7460</Text>
                                 <Text>+233 (543) 19 7876</Text>
@@ -169,12 +171,12 @@ function NewsPage() {
                             <Box
                                 p={4}
                                 bg="rgba(255,255,255,0.1)"
-                                borderRadius="xl"
+                                borderRadius="lg"
                                 transition="transform 0.3s ease"
                                 _hover={{ transform: "scale(1.05)" }}
                             >
-                                <Text fontSize="md" textDecoration={"underline"} fontWeight={"bold"}>Address:</Text>
-                                <Text fontSize={16}>Ashongman Estate, Atomic Hills Estate - Mensah Anteh Street, Accra</Text>
+                                <Text fontSize={{ base: "md", lg: "lg" }} textDecoration={"underline"} fontWeight={"bold"}>Address:</Text>
+                                <Text fontSize={{ base: "sm", lg: "md" }}>Ashongman Estate, Atomic Hills Estate - Mensah Anteh Street, Accra</Text>
                             </Box>
                         </Grid>
                     </MotionBox>

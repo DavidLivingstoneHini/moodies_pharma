@@ -6,6 +6,7 @@ interface ILinkButtonProps {
   href: string
   styles?: LinkProps
   args?: LinkProps
+  width?: string;
 }
 
 const ButtonStyles: LinkProps = {
@@ -22,9 +23,9 @@ const ButtonStyles: LinkProps = {
   _hover: { textDecor: "none" },
 }
 
-function LinkButton({ label, href, styles, args }: ILinkButtonProps) {
+function LinkButton({ label, href, styles, args, width }: ILinkButtonProps) {
   return (
-    <Link {...args} {...ButtonStyles} {...styles} href={href}>
+    <Link {...args} {...ButtonStyles} {...styles} href={href} width={width}>
       {label}
     </Link>
   )

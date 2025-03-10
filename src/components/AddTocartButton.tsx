@@ -1,15 +1,15 @@
-import useAppContext from "@/context/AppContext"
-import { Button } from "@chakra-ui/react"
-import { products } from "../../mocks/products"
-import { IProduct, IShopItem } from "@/models"
+import useAppContext from "@/context/AppContext";
+import { Button } from "@chakra-ui/react";
+import { IProduct } from "@/models";
 
 interface IAddTocartButtonProps {
-  product: IProduct
-  count?: number
+  product: IProduct;
+  count?: number;
+  width?: string; // Add width prop
 }
 
-function AddTocartButton({ product, count = 1 }: IAddTocartButtonProps) {
-  const { isAdded, addItem, removeItem } = useAppContext()
+function AddTocartButton({ product, count = 1, width }: IAddTocartButtonProps) {
+  const { isAdded, addItem, removeItem } = useAppContext();
 
   return !isAdded("cart", product.id) ? (
     <Button
@@ -17,9 +17,10 @@ function AddTocartButton({ product, count = 1 }: IAddTocartButtonProps) {
       borderColor="brand.primary"
       color="brand.primary"
       rounded="full"
-      w="130px"
       size="sm"
-      onClick={() => addItem("cart", product, count)}>
+      width={width} // Apply width prop
+      onClick={() => addItem("cart", product, count)}
+    >
       Add to cart
     </Button>
   ) : (
@@ -30,10 +31,12 @@ function AddTocartButton({ product, count = 1 }: IAddTocartButtonProps) {
       px="1rem"
       rounded="full"
       size="sm"
-      onClick={() => removeItem("cart", product.id)}>
+      width={width} // Apply width prop
+      onClick={() => removeItem("cart", product.id)}
+    >
       Remove from cart
     </Button>
-  )
+  );
 }
 
-export default AddTocartButton
+export default AddTocartButton;

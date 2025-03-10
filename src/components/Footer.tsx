@@ -75,15 +75,15 @@ export const Footer = () => {
 
           <Stack align="flex-start">
             <ListHeader>Information</ListHeader>
-            <Link href={"#"}>Terms & Conditions</Link>
-            <Link href={"#"}>Privacy Policy</Link>
-            <Link href={"#"}>FAQ</Link>
+            <Link href={"/terms"}>Terms & Conditions</Link>
+            <Link href={"/privacy"}>Privacy Policy</Link>
+            <Link href={"faq"}>FAQ</Link>
           </Stack>
 
           <Stack align="flex-start">
             <ListHeader>Support</ListHeader>
-            <Link href={"#"}>Delivery Information</Link>
-            <Link href={"#"}>Contact Us</Link>
+            <Link href={"/delivery"}>Delivery Information</Link>
+            <Link href={"/contact"}>Contact Us</Link>
             <Link href={"#"}>Site Map</Link>
           </Stack>
 
