@@ -51,6 +51,11 @@ function NewsPage() {
     const textColor = useColorModeValue("gray.700", "gray.300"); // Dark gray or light gray
     const accentColor = useColorModeValue("green.500", "green.300"); // Use green as an accent
 
+    const gradientBg = useColorModeValue(
+        "linear(to-r, #FF1493, #32CD32)", // Pink-Green Gradient for light mode
+        "linear(to-r, #FF1493, #32CD32)" // Pink-Green Gradient for dark mode
+    );
+
     const animation = `${fadeIn} 0.5s ease-in-out`;
 
     return (
