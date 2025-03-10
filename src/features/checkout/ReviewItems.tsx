@@ -17,7 +17,7 @@ function ReviewItems() {
 
   return (
     <Card>
-      <CardHeader fontSize={{ base: "sm", md: "md" }}>Review Items</CardHeader>
+      <CardHeader fontSize={{ base: "md", md: "xl" }} fontWeight={700}>Your Order</CardHeader>
 
       <CardBody>
         {checkout.map((item, index) => (

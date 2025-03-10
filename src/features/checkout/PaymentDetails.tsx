@@ -5,13 +5,11 @@ import {
   Button,
   Card,
   CardBody,
-  CardHeader,
   Divider,
   Flex,
   Heading,
   Input,
   Radio,
-  RadioGroup,
   Stack,
   Text,
   Modal,
@@ -39,118 +37,117 @@ function PaymentDetails() {
 
   return (
     <Card>
-      <CardHeader fontSize={{ base: "sm", md: "md" }}>Payment Details</CardHeader>
-
       <CardBody>
-        <Stack spacing={4}>
+        <Stack spacing={6}>
           {/* Coupon Input and Button */}
           <Flex
             direction={{ base: "column", md: "row" }}
             align={{ base: "stretch", md: "center" }}
             justify="space-between"
+            gap={3}
           >
             <Input
               type="text"
               placeholder="Enter Coupon Code"
               rounded="full"
-              mb={{ base: 2, md: 0 }}
+              flexGrow={1}
             />
             <Button
               bgColor="brand.primary"
               color="white"
               rounded="full"
-              px={{ base: "1rem", md: "2rem" }}
+              px={{ base: 6, md: 8 }}
+              flexShrink={0}
               _hover={{ bgColor: "brand.primaryDark" }}
               _active={{ bgColor: "brand.primaryDark" }}
             >
               Apply Coupon
             </Button>
           </Flex>
-          <Divider mt="1rem" />
+          <Divider />
 
-          {/* Payment Options */}
-          <Box>
-            <Heading size={{ base: "xs", md: "sm" }} my="1rem">
-              Payment Options
-            </Heading>
-            <RadioGroup>
-              <Stack spacing={3}>
-                <Radio value="cashOnDelivery">Cash On Delivery</Radio>
-                <Radio value="mobilePayment">Mobile Money Payment</Radio>
-                <Radio value="creditCard">Credit Card (Master/Visa)</Radio>
-              </Stack>
-            </RadioGroup>
-          </Box>
-          <Divider mt="1rem" />
+          {/* Pay After Confirmation Section with Radio Button */}
+          <Card padding={8} backgroundColor={"#fafafa"}>
+            <Box py={2}>
+              <Flex align="flex-start" mb={4}>
+                <Radio
+                  isChecked
+                  isDisabled
+                  colorScheme="brand"
+                  size="lg"
+                  mt={1}
+                  mr={3}
+                />
+                <Box>
+                  <Heading size={{ base: "xs", md: "sm" }} mb={2}>
+                    Pay After Confirmation
+                  </Heading>
+                  <Text fontSize={15} color="gray.600" mb={2}>
+                    A member of our staff will contact you to confirm your order.
+                  </Text>
+                  <Text fontSize="sm" color="gray.600" marginTop={10}>
+                    Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our{" "}
+                    <Text as="span" color="brand.primary" textDecoration="underline" cursor="pointer">
+                      Privacy policy.
+                    </Text>
+                  </Text>
+                </Box>
+              </Flex>
+            </Box>
+          </Card>
+          <Divider />
 
           {/* Totals Section */}
           <Box>
-            <Flex
-              direction={{ base: "column", md: "row" }}
-              justify="space-between"
-              align="center"
-              my="1rem"
-            >
-              <Text fontWeight="bold">Sub Total</Text>
-              <Text fontWeight="bold">Ghs{total.current.toFixed(2)}</Text>
-            </Flex>
+            <Stack spacing={3}>
+              <Flex justify="space-between" align="center">
+                <Text fontWeight="medium">Sub Total</Text>
+                <Text fontWeight="bold">Ghs{total.current.toFixed(2)}</Text>
+              </Flex>
 
-            <Flex
-              direction={{ base: "column", md: "row" }}
-              justify="space-between"
-              align="center"
-              my="1rem"
-            >
-              <Text fontWeight="bold">Tax(10%)</Text>
-              <Text fontWeight="bold">Ghs{tax.toFixed(2)}</Text>
-            </Flex>
+              <Flex justify="space-between" align="center">
+                <Text fontWeight="medium">Tax (10%)</Text>
+                <Text fontWeight="bold">Ghs{tax.toFixed(2)}</Text>
+              </Flex>
 
-            <Flex
-              direction={{ base: "column", md: "row" }}
-              justify="space-between"
-              align="center"
-              my="1rem"
-            >
-              <Text fontWeight="bold">Coupon Discount</Text>
-              <Text fontWeight="bold">-Ghs{tax.toFixed(2)}</Text>
-            </Flex>
+              <Flex justify="space-between" align="center">
+                <Text fontWeight="medium">Coupon Discount</Text>
+                <Text fontWeight="bold">-Ghs{tax.toFixed(2)}</Text>
+              </Flex>
 
-            <Flex
-              direction={{ base: "column", md: "row" }}
-              justify="space-between"
-              align="center"
-              my="1rem"
-            >
-              <Text fontWeight="bold">Shipping Cost</Text>
-              <Text fontWeight="bold">-Ghs0.00</Text>
-            </Flex>
-            <Divider />
-            <Flex
-              direction={{ base: "column", md: "row" }}
-              justify="space-between"
-              align="center"
-              my="1rem"
-            >
-              <Text fontWeight="bold">Total</Text>
-              <Text fontWeight="bold">Ghs{total.current.toFixed(2)}</Text>
-            </Flex>
+              <Flex justify="space-between" align="center">
+                <Text fontWeight="medium">Shipping Cost</Text>
+                <Text fontWeight="bold">Ghs0.00</Text>
+              </Flex>
+
+              <Divider />
+
+              <Flex justify="space-between" align="center" pt={2}>
+                <Text fontWeight="bold" fontSize="lg">Total</Text>
+                <Text fontWeight="bold" fontSize="lg" color="brand.primary">
+                  Ghs{total.current.toFixed(2)}
+                </Text>
+              </Flex>
+            </Stack>
           </Box>
 
-          {/* Pay Button */}
+          {/* Place Order Button */}
           <Button
             bgColor="brand.primary"
             color="white"
             w="100%"
             rounded="full"
+            size="lg"
+            mt={2}
             _hover={{
               bgColor: "brand.primaryDark",
             }}
             _active={{
               bgColor: "brand.primaryDark",
             }}
-            onClick={onOpen} // Open the modal on click
+            onClick={onOpen}
           >
-            Pay Ghs{total.current.toFixed(2)}
+            Place Order
           </Button>
         </Stack>
       </CardBody>
@@ -158,19 +155,19 @@ function PaymentDetails() {
       {/* Confirmation Modal */}
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Order Confirmed Successfully!</ModalHeader>
-          <ModalCloseButton /> {/* Button to close the modal */}
+        <ModalContent borderRadius="lg">
+          <ModalHeader textAlign="center">Order Confirmed Successfully!</ModalHeader>
+          <ModalCloseButton />
           <ModalBody>
-            <Flex direction="column" align="center" justify="center">
+            <Flex direction="column" align="center" justify="center" py={4}>
               <Image
                 src="/success.jpg"
                 alt="Order Confirmed"
                 boxSize="200px"
                 objectFit="cover"
               />
-              <Text mt={4} textAlign="center" fontSize="lg" fontWeight="bold">
-                Thank you for your purchase!
+              <Text mt={6} textAlign="center" fontSize="md" fontWeight="bold">
+                Thank you for your purchase, a member of our staff will reach out to you shortly!
               </Text>
             </Flex>
           </ModalBody>
@@ -180,13 +177,14 @@ function PaymentDetails() {
               color="white"
               w="100%"
               rounded="full"
+              size="lg"
               _hover={{
                 bgColor: "brand.primaryDark",
               }}
               _active={{
                 bgColor: "brand.primaryDark",
               }}
-              onClick={onClose} // Close the modal
+              onClick={onClose}
             >
               Close
             </Button>

@@ -45,7 +45,7 @@ function Cart() {
   return (
     <>
       <Button ref={btnRef} onClick={onOpen} {...cartButtonStyles}>
-        <BsCart4 />
+        <BsCart4 fontSize={"20px"} />
         {/* <Text>Cart</Text> */}
         {cart.length > 0 && (
           <Flex {...notificationItemsCount}>{cart.length}</Flex>

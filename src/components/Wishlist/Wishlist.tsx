@@ -18,6 +18,7 @@ import { useRef } from "react"
 import { BsCart4, BsHeart } from "react-icons/bs"
 import WishlistItem from "./WishlistItem"
 import { notificationItemsCount, trashButtonStyles } from "../Cart/styles"
+import { FaHeart } from "react-icons/fa"
 
 function Wishlist() {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -37,7 +38,7 @@ function Wishlist() {
           bgColor="transparent"
           _hover={{ bgColor: "transparent" }}
           color="brand.primary">
-          <BsHeart />
+          <FaHeart color="pink.500" fontSize={"20px"} />
           {/* <Text>Wishlist</Text> */}
 
           {wishlist.length > 0 && (

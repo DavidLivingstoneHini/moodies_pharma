@@ -224,6 +224,23 @@ function ContactPage() {
                                     />
                                 </FormControl>
 
+                                <FormControl mb={4} isRequired>
+                                    <Input
+                                        type="text"
+                                        name="phone"
+                                        placeholder="Phone Number"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        size="lg"
+                                        borderRadius="md"
+                                        borderColor={useColorModeValue("gray.300", "gray.600")}
+                                        _focus={{
+                                            borderColor: "#FF1493",
+                                            boxShadow: "0 0 0 1px #FF1493"
+                                        }}
+                                    />
+                                </FormControl>
+
                                 <FormControl mb={4}>
                                     <Input
                                         type="text"

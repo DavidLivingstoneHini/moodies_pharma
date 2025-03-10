@@ -18,34 +18,59 @@ import {
   DrawerContent,
   DrawerCloseButton,
   IconButton,
-  VStack
-} from "@chakra-ui/react"
-import { ChevronDownIcon, SearchIcon, HamburgerIcon } from "@chakra-ui/icons"
-import { FaAngleDown, FaShoppingCart, FaEnvelope, FaPhone, FaClock, FaUser, FaCalendarAlt } from "react-icons/fa"
+  VStack,
+  Slide,
+  InputGroup,
+  Input,
+  InputRightElement,
+} from "@chakra-ui/react";
+import { ChevronDownIcon, SearchIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { FaAngleDown, FaShoppingCart, FaEnvelope, FaPhone, FaClock, FaUser, FaCalendarAlt, FaHeart } from "react-icons/fa";
 import {
   desktopNavStyles,
   logoSectionStyles,
   cartSectionStyles,
   navItemStyles,
   topBannerStyles,
-} from "./styles"
-import AppLogo from "../AppLogo"
-import { Link } from "@chakra-ui/next-js"
-import Search from "../Search/Search"
-import Cart from "../Cart/Cart"
-import Wishlist from "../Wishlist/Wishlist"
-import React from "react"
-import AuthModal from "../AuthModal"
+} from "./styles";
+import AppLogo from "../AppLogo";
+import { Link } from "@chakra-ui/next-js";
+import Search from "../Search/Search";
+import Cart from "../Cart/Cart";
+import Wishlist from "../Wishlist/Wishlist";
+import React, { useState } from "react";
+import AuthModal from "../AuthModal";
 
 // Enhance the animation for a more modern feel
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(-15px); }
   to { opacity: 1; transform: translateY(0); }
-`
+`;
 
 function DesktopNav() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [modalOpen, setModalOpen] = React.useState(false);
+  const [showMobileSearch, setShowMobileSearch] = useState(false);
+  const [showWishlist, setShowWishlist] = useState(false);
+  const [showCart, setShowCart] = useState(false);
+
+  const toggleMobileSearch = () => {
+    setShowMobileSearch(!showMobileSearch);
+    setShowWishlist(false); // Close Wishlist if open
+    setShowCart(false); // Close Cart if open
+  };
+
+  const toggleWishlist = () => {
+    setShowWishlist(!showWishlist);
+    setShowMobileSearch(false); // Close Search if open
+    setShowCart(false); // Close Cart if open
+  };
+
+  const toggleCart = () => {
+    setShowCart(!showCart);
+    setShowMobileSearch(false); // Close Search if open
+    setShowWishlist(false); // Close Wishlist if open
+  };
 
   const navItems = [
     { label: "HOME", href: "/" },
@@ -81,12 +106,10 @@ function DesktopNav() {
       >
         {/* Left side content - Full information on larger screens */}
         <Flex display={{ base: "none", md: "flex" }}>
-          {/* <Link href="mailto:moodieschemists@gmail.com" _hover={{ textDecoration: 'none', color: 'gray.100' }}> */}
           <Flex align="center" mr={6}>
             <Icon as={FaEnvelope} mr={2} />
             <Text>moodieschemists@gmail.com</Text>
           </Flex>
-          {/* </Link> */}
 
           <Flex align="center" mr={6}>
             <Icon as={FaPhone} mr={2} />
@@ -101,21 +124,15 @@ function DesktopNav() {
 
         {/* Condensed information for mobile screens */}
         <Flex display={{ base: "flex", md: "none" }} justifyContent="space-between" width="100%" flexDirection="column" align="center">
-          {/* <Link href="tel:+233208360510" _hover={{ textDecoration: 'none', color: 'gray.100' }}> */}
           <Flex align="center" mx={2}>
             <Icon as={FaPhone} mr={1} />
             <Text fontSize="xs" display={{ base: "block", sm: "block" }}>+233 20836 0510</Text>
           </Flex>
-          {/* </Link> */}
 
-          {/* <Link href="mailto:moodieschemists@gmail.com" _hover={{ textDecoration: 'none', color: 'gray.100' }}> */}
           <Flex align="center">
             <Icon as={FaEnvelope} mr={1} />
             <Text fontSize="xs" display={{ base: "block", sm: "block" }}>moodieschemists@gmail.com</Text>
           </Flex>
-          {/* </Link> */}
-
-
         </Flex>
       </Flex>
 
@@ -129,7 +146,30 @@ function DesktopNav() {
         zIndex={10}
         top={{ base: "40px", md: "40px" }}
       >
-        {/* Mobile hamburger menu (visible only on mobile) */}
+        {/* Mobile Search Slide-down - Visible when search icon is clicked */}
+        <Slide direction='top' in={showMobileSearch} style={{ zIndex: 20 }}>
+          <Box
+            p={4}
+            bg="white"
+            shadow="md"
+            display={{ base: "block", lg: "none" }}
+          >
+            <InputGroup>
+              <Input placeholder="Search products..." border="1px" borderColor="gray.300" />
+              <InputRightElement>
+                <IconButton
+                  icon={<CloseIcon />}
+                  size="sm"
+                  variant="ghost"
+                  onClick={toggleMobileSearch}
+                  aria-label="Close search"
+                />
+              </InputRightElement>
+            </InputGroup>
+          </Box>
+        </Slide>
+
+        {/* Mobile top navigation (visible only on mobile) */}
         <Flex
           display={{ base: "flex", lg: "none" }}
           justify="space-between"
@@ -138,26 +178,19 @@ function DesktopNav() {
           borderBottom="1px"
           borderColor="gray.200"
         >
-          <Flex>
-
-            <IconButton
-              icon={<HamburgerIcon />}
-              variant="ghost"
-              onClick={onOpen}
-              aria-label="Open navigation"
-            />
-          </Flex>
-
-          <Box w={"60px"} h={"30px"} mr={"10px"}>
+          <Box w={"60px"} h={"30px"}>
             <AppLogo />
           </Box>
 
-          <Box>
-            <Search />
-          </Box>
+          <IconButton
+            icon={<HamburgerIcon />}
+            variant="ghost"
+            onClick={onOpen}
+            aria-label="Open navigation"
+          />
         </Flex>
 
-        {/* Top section with Logo, Search, Login, Cart, Wishlist */}
+        {/* Top section with Logo, Search, Login, Cart, Wishlist - Desktop only */}
         <Flex
           {...desktopNavStyles}
           animation={`${fadeIn} 0.6s ease-out`}
@@ -279,9 +312,9 @@ function DesktopNav() {
           <Box pr={4}>
             <Link href="/appointment" _hover={{ textDecoration: 'none' }}>
               <Button
-                bgGradient="linear(to-r, pink.400, green.400)" // Adjusted gradient
-                size="md" // Increased size
-                paddingY={5} // Increased vertical padding for height
+                bgGradient="linear(to-r, pink.400, green.400)"
+                size="md"
+                paddingY={5}
                 leftIcon={<FaCalendarAlt />}
                 _hover={{
                   transform: "translateY(-2px)",
@@ -296,6 +329,111 @@ function DesktopNav() {
           </Box>
         </Flex>
       </Flex>
+
+      {/* Mobile Bottom Navigation Bar */}
+      <Flex
+        position="fixed"
+        bottom={0}
+        left={0}
+        right={0}
+        bg="black" // Black background
+        boxShadow="0 -2px 10px rgba(0,0,0,0.05)"
+        justify="space-around"
+        align="center"
+        py={3}
+        zIndex={10}
+        display={{ base: "flex", lg: "none" }}
+      >
+        <IconButton
+          aria-label="Login"
+          icon={<FaUser />}
+          variant="ghost"
+          fontSize="xl" // Increased icon size
+          color="pink.500" // White icons
+          rounded="full"
+          onClick={() => setModalOpen(true)}
+        />
+
+        {/* Separator between icons */}
+        <Box
+          height="40px" // Height of the separator
+          borderLeft="1px solid white" // White vertical line
+          mx={2} // Add horizontal spacing between icons
+        />
+
+        <IconButton
+          aria-label="Search"
+          icon={<SearchIcon />}
+          variant="ghost"
+          fontSize="xl" // Increased icon size
+          color="pink.500" // White icons
+          rounded="full"
+          onClick={toggleMobileSearch}
+        />
+
+        {/* Separator between icons */}
+        <Box
+          height="40px" // Height of the separator
+          borderLeft="1px solid white" // White vertical line
+          mx={2} // Add horizontal spacing between icons
+        />
+
+        <Wishlist />
+
+        {/* Separator between icons */}
+        <Box
+          height="40px" // Height of the separator
+          borderLeft="1px solid white" // White vertical line
+          mx={2} // Add horizontal spacing between icons
+        />
+
+        <Cart />
+      </Flex>
+
+      {/* Slide-down components for Search, Wishlist, and Cart */}
+      <Slide direction='top' in={showMobileSearch} style={{ zIndex: 20 }}>
+        <Box
+          p={4}
+          bg="white"
+          shadow="md"
+          display={{ base: "block", lg: "none" }}
+        >
+          <InputGroup>
+            <Input placeholder="Search products..." border="1px" borderColor="gray.300" />
+            <InputRightElement>
+              <IconButton
+                icon={<CloseIcon />}
+                size="sm"
+                variant="ghost"
+                onClick={toggleMobileSearch}
+                aria-label="Close search"
+              />
+            </InputRightElement>
+          </InputGroup>
+        </Box>
+      </Slide>
+
+      <Slide direction='top' in={showWishlist} style={{ zIndex: 20 }}>
+        <Box
+          p={4}
+          bg="white"
+          shadow="md"
+          display={{ base: "block", lg: "none" }}
+        >
+          <Wishlist />
+        </Box>
+      </Slide>
+
+      <Slide direction='top' in={showCart} style={{ zIndex: 20 }}>
+        <Box
+          p={4}
+          bg="white"
+          shadow="md"
+          display={{ base: "block", lg: "none" }}
+        >
+          <Cart />
+        </Box>
+      </Slide>
 
       {/* Mobile Navigation Drawer */}
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
@@ -366,26 +504,13 @@ function DesktopNav() {
               ))}
             </VStack>
 
-            <Link href="/auth" onClick={onClose} _hover={{ textDecoration: 'none' }}>
-              <Button
-                leftIcon={<FaUser />}
-                colorScheme="green"
-                variant="outline"
-                size="md"
-                width="full"
-                mt={8}
-              >
-                Login / Sign Up
-              </Button>
-            </Link>
-
             <Link href="/appointment" onClick={onClose} _hover={{ textDecoration: 'none' }}>
               <Button
                 leftIcon={<FaCalendarAlt />}
-                bgGradient="linear(to-r, pink.400, green.400)" // Adjusted gradient
+                bgGradient="linear(to-r, pink.400, green.400)"
                 size="md"
                 width="full"
-                mt={4}
+                mt={8}
                 textColor={"white"}
               >
                 Book Appointment
@@ -400,8 +525,11 @@ function DesktopNav() {
 
       {/* Spacer to prevent content from being hidden under fixed navbar */}
       <Box height={{ base: "110px", md: "150px", lg: "150px" }}></Box>
+
+      {/* Bottom spacer for mobile to prevent content from being hidden under bottom nav */}
+      <Box height={{ base: "60px", lg: "0" }} display={{ base: "block", lg: "none" }}></Box>
     </>
-  )
+  );
 }
 
-export default DesktopNav
+export default DesktopNav;

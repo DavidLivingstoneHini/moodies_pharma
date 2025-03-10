@@ -4,6 +4,7 @@ import CustomBreadcrumb from "@/components/Breadcrumb"
 import LinkButton from "@/components/LinkButton"
 import Quantity from "@/components/Quantity"
 import Raiting from "@/components/Raiting"
+import Wishlist from "@/components/Wishlist/Wishlist"
 import useAppContext from "@/context/AppContext"
 import { defaultBreadcrumbItems } from "@/helpers"
 import { IProduct, NavItem } from "@/models"
@@ -19,8 +20,12 @@ import {
   Image,
   Stack,
   Text,
+  Button,
+  Icon,
+  useBreakpointValue,
 } from "@chakra-ui/react"
 import { useState } from "react"
+import { FaWhatsapp, FaPhone } from "react-icons/fa"
 
 interface IProductDetailsProps {
   product: IProduct
@@ -28,12 +33,26 @@ interface IProductDetailsProps {
 
 function ProductDetails({ product }: IProductDetailsProps) {
   const [quantity, setQuantity] = useState(0)
+  const buttonSize = useBreakpointValue({ base: "sm", md: "md" })
+  const buttonWidth = useBreakpointValue({ base: "100%", sm: "auto" })
+  const buttonDirection = useBreakpointValue({ base: "column", sm: "row" }) as "column" | "row"  // Fixed here
 
   const { resetItems, addItem } = useAppContext()
 
   const handleBuyNow = () => {
     resetItems("checkout")
     addItem("checkout", product, quantity)
+  }
+
+  const handleWhatsAppOrder = () => {
+    const whatsappNumber = "+233208360510"
+    const message = `Hello, I'm interested in ordering ${product.name}. Quantity: ${quantity}`
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank")
+  }
+
+  const handlePhoneOrder = () => {
+    const phoneNumber = "+233208360510"
+    window.location.href = `tel:${phoneNumber}`
   }
 
   return (
@@ -63,7 +82,7 @@ function ProductDetails({ product }: IProductDetailsProps) {
         <GridItem>
           <Heading>{product.name}</Heading>
           <Text>{product.description}</Text>
-          <Raiting rating={product.rating} />
+          {/* <Raiting rating={product.rating} /> */}
 
           <Text fontWeight="bold" fontSize="2rem">
             Ghs {product.price}
@@ -82,6 +101,47 @@ function ProductDetails({ product }: IProductDetailsProps) {
               href="/checkout"
             />
             <AddTocartButton product={product} count={quantity} />
+          </Flex>
+
+          <Flex
+            mt="1rem"
+            gap="1rem"
+            flexDirection="row"  // Always horizontal
+            width="100%"
+            flexWrap="wrap"  // Allow wrapping if necessary
+          >
+            <Button
+              leftIcon={<Icon as={FaWhatsapp} />}
+              onClick={handleWhatsAppOrder}
+              bg="#25D366"
+              borderRadius={100}
+              borderWidth={1.6}
+              borderColor={"#000"}
+              color="white"
+              _hover={{ bg: "#128C7E" }}
+              size={buttonSize}
+              width={{ base: "auto", sm: "auto" }}  // Full width on mobile, auto on larger screens
+              minW="120px"
+              maxW={{ base: "100%", sm: "200px" }}
+            >
+              Order On WhatsApp
+            </Button>
+            <Button
+              leftIcon={<Icon as={FaPhone} />}
+              onClick={handlePhoneOrder}
+              bg="#4285F4"
+              borderRadius={100}
+              borderWidth={1.6}
+              borderColor={"#000"}
+              color="white"
+              _hover={{ bg: "#3367D6" }}
+              size={buttonSize}
+              width={{ base: "auto", sm: "auto" }}
+              minW="120px"
+              maxW={{ base: "100%", sm: "200px" }}
+            >
+              Call to Order
+            </Button>
           </Flex>
 
           <Stack py="2rem">

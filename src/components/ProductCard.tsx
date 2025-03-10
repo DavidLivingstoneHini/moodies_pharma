@@ -29,15 +29,17 @@ function ProductCard({ product }: Props) {
   return (
     <Card
       maxW="sm"
-      borderWidth="1px" // Add a visible border
-      borderColor={borderColor} // Set border color
-      borderRadius="lg" // Rounded corners
-      overflow="hidden" // Ensure content doesn't overflow
-      transition="all 0.3s ease" // Smooth transition for hover effects
+      w="100%" // Ensure the card takes up full width of its container
+      h="480px" // Fixed height for all cards
+      borderWidth="1px"
+      borderColor={borderColor}
+      borderRadius="lg"
+      overflow="hidden"
+      transition="all 0.3s ease"
       _hover={{
-        borderColor: hoverBorderColor, // Change border color on hover
-        transform: "scale(1.02)", // Slightly scale up on hover
-        boxShadow: "lg", // Add a shadow on hover
+        borderColor: hoverBorderColor,
+        transform: "scale(1.02)",
+        boxShadow: "lg",
       }}
     >
       <Link
@@ -48,17 +50,21 @@ function ProductCard({ product }: Props) {
         <CardBody pos="relative">
           <AddWishlistButton product={product} />
           <Box
-            boxSize="200px"
+            boxSize="200px" // Fixed size for the image container
             bg={`center / contain no-repeat url(${mainImage})`}
             mx="auto"
             borderRadius="lg"
           />
           <Stack mt="6" spacing="3">
-            <Flex justify="space-between">
-              <Heading size="sm" w={{ base: "60%", md: "auto" }} noOfLines={2}>
+            <Flex justify="space-between" align="center">
+              <Heading
+                size="sm"
+                w="70%" // Limit width for the product name
+                noOfLines={2} // Truncate after 2 lines
+              >
                 {name}
               </Heading>
-              <Flex>
+              <Flex align="center">
                 <Text fontSize="sm" color="brand.primary" fontWeight="bold">
                   Ghs{" "}
                 </Text>
@@ -72,8 +78,10 @@ function ProductCard({ product }: Props) {
                 </Text>
               </Flex>
             </Flex>
-            <Text noOfLines={2}>{description}</Text>
-            <Raiting rating={rating} />
+            <Text noOfLines={2} h="40px"> {/* Fixed height for description */}
+              {description}
+            </Text>
+            {/* <Raiting rating={rating} /> */}
           </Stack>
         </CardBody>
       </Link>
