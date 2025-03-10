@@ -22,6 +22,7 @@ import {
   useDisclosure,
   Image,
 } from "@chakra-ui/react"
+import Link from "next/link"
 import { useState, useRef } from "react"
 
 function PaymentDetails() {
@@ -88,7 +89,7 @@ function PaymentDetails() {
                   <Text fontSize="sm" color="gray.600" marginTop={10}>
                     Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our{" "}
                     <Text as="span" color="brand.primary" textDecoration="underline" cursor="pointer">
-                      Privacy policy.
+                      <Link href={"/privacy"}>Privacy policy.</Link>
                     </Text>
                   </Text>
                 </Box>
