@@ -38,7 +38,7 @@ function Wishlist() {
           bgColor="transparent"
           _hover={{ bgColor: "transparent" }}
           color="brand.primary">
-          <FaHeart color="pink.500" fontSize={"20px"} />
+          <FaHeart color="white" fontSize={"20px"} />
           {/* <Text>Wishlist</Text> */}
 
           {wishlist.length > 0 && (

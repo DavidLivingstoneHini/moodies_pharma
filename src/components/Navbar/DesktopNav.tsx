@@ -336,7 +336,7 @@ function DesktopNav() {
         bottom={0}
         left={0}
         right={0}
-        bg="black" // Black background
+        bg="green.500" // Black background
         boxShadow="0 -2px 10px rgba(0,0,0,0.05)"
         justify="space-around"
         align="center"
@@ -349,7 +349,7 @@ function DesktopNav() {
           icon={<FaUser />}
           variant="ghost"
           fontSize="xl" // Increased icon size
-          color="pink.500" // White icons
+          color="white" // White icons
           rounded="full"
           onClick={() => setModalOpen(true)}
         />
@@ -366,7 +366,7 @@ function DesktopNav() {
           icon={<SearchIcon />}
           variant="ghost"
           fontSize="xl" // Increased icon size
-          color="pink.500" // White icons
+          color="white" // White icons
           rounded="full"
           onClick={toggleMobileSearch}
         />
@@ -522,12 +522,6 @@ function DesktopNav() {
 
       {/* Auth Modal */}
       <AuthModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
-
-      {/* Spacer to prevent content from being hidden under fixed navbar */}
-      <Box height={{ base: "110px", md: "150px", lg: "150px" }}></Box>
-
-      {/* Bottom spacer for mobile to prevent content from being hidden under bottom nav */}
-      <Box height={{ base: "60px", lg: "0" }} display={{ base: "block", lg: "none" }}></Box>
     </>
   );
 }

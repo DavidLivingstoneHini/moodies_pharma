@@ -45,38 +45,44 @@ function Cart() {
   return (
     <>
       <Button ref={btnRef} onClick={onOpen} {...cartButtonStyles}>
-        <BsCart4 fontSize={"20px"} />
+        <BsCart4 fontSize={"20px"} color="white" fontWeight={"extrabold"} />
         {/* <Text>Cart</Text> */}
         {cart.length > 0 && (
           <Flex {...notificationItemsCount}>{cart.length}</Flex>
         )}
       </Button>
       <Drawer
-        size={{ base: "xs", md: "sm", lg: "md" }} // Responsive drawer size
+        size={{ base: "xs", md: "sm", lg: "md" }}
         isOpen={isOpen}
         placement="right"
         onClose={onClose}
-        finalFocusRef={btnRef}>
+        finalFocusRef={btnRef}
+      >
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader color="brand.primary" fontSize={{ base: "lg", md: "xl" }}>Cart</DrawerHeader>
-
+          <DrawerHeader color="brand.primary" fontSize={{ base: "lg", md: "xl" }}>
+            Cart
+          </DrawerHeader>
           <DrawerBody>
             {cart.length > 0 ? (
-              cart.map(item => <CartItem key={item.id} item={item} />)
+              cart.map((item) => <CartItem key={item.id} item={item} />)
             ) : (
-              <Flex justify="center" fontSize={{ base: "md", md: "lg" }}>Your cart is empty</Flex>
+              <Flex justify="center" fontSize={{ base: "md", md: "lg" }}>
+                Your cart is empty
+              </Flex>
             )}
           </DrawerBody>
-
           {cart.length > 0 && (
             <DrawerFooter justifyContent="space-between" flexDirection={{ base: "column", md: "row" }}>
               <Box>
                 <Button
                   {...cleanCartButtonStyles}
-                  onClick={() => resetItems("cart")}
-                  mb={{ base: 2, md: 0 }} // Margin bottom on mobile
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent event bubbling
+                    resetItems("cart");
+                  }}
+                  mb={{ base: 2, md: 0 }}
                 >
                   Clear Cart
                 </Button>
@@ -84,7 +90,7 @@ function Cart() {
                   {...checkoutButtonStyles}
                   onClick={handleCheckout}
                   href="/checkout"
-                  ml={{ base: 0, md: 4 }} // Margin left on desktop
+                  ml={{ base: 0, md: 4 }}
                 >
                   Checkout
                 </Link>
