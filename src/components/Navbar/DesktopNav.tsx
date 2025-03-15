@@ -366,7 +366,7 @@ function DesktopNav() {
           icon={<SearchIcon />}
           variant="ghost"
           fontSize="xl" // Increased icon size
-          color="white" // White icons
+          color="white"
           rounded="full"
           onClick={toggleMobileSearch}
         />
@@ -436,7 +436,12 @@ function DesktopNav() {
       </Slide>
 
       {/* Mobile Navigation Drawer */}
-      <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+      <Drawer
+        isOpen={isOpen}
+        placement="right"
+        onClose={onClose}
+        closeOnOverlayClick={false} // Prevent closing on outside click
+      >
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
@@ -447,26 +452,24 @@ function DesktopNav() {
                 <Box key={item.href}>
                   {item.hasDropdown ? (
                     <Menu>
-                      <Link href={item.href} onClick={onClose} _hover={{ textDecoration: 'none' }}>
-                        <MenuButton
-                          as={Box}
-                          fontWeight="600"
-                          fontSize="md"
-                          color="green.500"
-                          _hover={{ color: "gray.500" }}
-                          cursor="pointer"
-                          display="flex"
-                          alignItems="center"
-                        >
-                          {item.label} <ChevronDownIcon ml={1} />
-                        </MenuButton>
-                      </Link>
+                      <MenuButton
+                        as={Button}
+                        fontWeight="600"
+                        fontSize="md"
+                        color="green.500"
+                        _hover={{ color: "gray.500" }}
+                        cursor="pointer"
+                        display="flex"
+                        alignItems="center"
+                        onClick={(e) => e.stopPropagation()} // Prevent Drawer from closing
+                      >
+                        {item.label} <ChevronDownIcon ml={1} />
+                      </MenuButton>
                       <MenuList zIndex={20} boxShadow="lg" borderRadius="md" p={2}>
                         {aboutDropdownItems.map((dropItem) => (
                           <Link
                             key={dropItem.href}
                             href={dropItem.href}
-                            onClick={onClose}
                             _hover={{ textDecoration: 'none' }}
                           >
                             <MenuItem
@@ -476,6 +479,7 @@ function DesktopNav() {
                               }}
                               borderRadius="md"
                               py={2}
+                              onClick={(e) => e.stopPropagation()} // Prevent Drawer from closing
                             >
                               {dropItem.label}
                             </MenuItem>

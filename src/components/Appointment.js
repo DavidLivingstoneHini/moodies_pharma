@@ -1,5 +1,5 @@
 "use client";
-import { Box, Text, Grid, Stack, Button, Icon, Container, useColorModeValue } from "@chakra-ui/react";
+import { Box, Text, Grid, Stack, Button, Icon, Container, useColorModeValue, useBreakpointValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { FaPlus, FaMinus, FaEnvelope, FaPhone, FaMapMarkerAlt, FaArrowLeft } from "react-icons/fa"; // Added FaArrowLeft for the back button
 import { useState } from "react";
@@ -91,15 +91,15 @@ const Appointment = () => {
             {/* Header Section */}
             <MotionBox
                 bgGradient={gradientBg}
-                py={16}
+                py={{ base: 8, md: 16 }}
                 px={4}
                 mb={6}
-                mt={16}
+                mt={{ base: 12, md: 16 }}
                 initial="hidden"
                 animate="visible"
                 variants={fadeIn}
             >
-                <Text fontSize="3xl" fontWeight="bold" ml={6} textAlign="left" color="white">Appointment Booking</Text>
+                <Text fontSize={{ base: "2xl", md: "3xl" }} fontWeight="bold" ml={{ base: 2, md: 6 }} textAlign="left" color="white">Appointment Booking</Text>
             </MotionBox>
 
             <Container maxW="container.xl" py={8} display="flex" justifyContent="center">
@@ -110,7 +110,7 @@ const Appointment = () => {
                     borderColor="gray.200"
                     width="full"
                     maxWidth="1200px"
-                    height="80vh"
+                    height={{ base: "auto", md: "80vh" }}
                     borderRadius="md"
                     boxShadow="xl"
                     bg="white"
@@ -177,7 +177,7 @@ const Appointment = () => {
                                         transition={{ duration: 0.5 }}
                                         sx={cardStyle}
                                     >
-                                        <Text fontSize="2xl" fontWeight="bold" mb={6}>Choose Your Location</Text>
+                                        <Text fontSize={{ base: "xl", md: "2xl" }} fontWeight="bold" mb={6}>Choose Your Location</Text>
                                         <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }} gap={6}>
                                             {/* Location Card 1 */}
                                             <Box
@@ -195,8 +195,8 @@ const Appointment = () => {
                                                 onClick={() => console.log("Location 1 selected")} // Replace with your logic
                                             >
                                                 <Icon as={FaMapMarkerAlt} boxSize={8} color="teal.500" mb={4} />
-                                                <Text fontSize="xl" fontWeight="bold" mb={2}>Accra Central</Text>
-                                                <Text fontSize="md" color="gray.600">123 Main Street, Accra</Text>
+                                                <Text fontSize={{ base: "lg", md: "xl" }} fontWeight="bold" mb={2}>Accra Central</Text>
+                                                <Text fontSize={{ base: "sm", md: "md" }} color="gray.600">123 Main Street, Accra</Text>
                                             </Box>
 
                                             {/* Location Card 2 */}
@@ -215,8 +215,8 @@ const Appointment = () => {
                                                 onClick={() => console.log("Location 2 selected")} // Replace with your logic
                                             >
                                                 <Icon as={FaMapMarkerAlt} boxSize={8} color="teal.500" mb={4} />
-                                                <Text fontSize="xl" fontWeight="bold" mb={2}>East Legon</Text>
-                                                <Text fontSize="md" color="gray.600">456 East Legon Avenue, Accra</Text>
+                                                <Text fontSize={{ base: "lg", md: "xl" }} fontWeight="bold" mb={2}>East Legon</Text>
+                                                <Text fontSize={{ base: "sm", md: "md" }} color="gray.600">456 East Legon Avenue, Accra</Text>
                                             </Box>
 
                                             {/* Location Card 3 */}
@@ -235,8 +235,8 @@ const Appointment = () => {
                                                 onClick={() => console.log("Location 3 selected")} // Replace with your logic
                                             >
                                                 <Icon as={FaMapMarkerAlt} boxSize={8} color="teal.500" mb={4} />
-                                                <Text fontSize="xl" fontWeight="bold" mb={2}>Osu</Text>
-                                                <Text fontSize="md" color="gray.600">789 Osu Road, Accra</Text>
+                                                <Text fontSize={{ base: "lg", md: "xl" }} fontWeight="bold" mb={2}>Osu</Text>
+                                                <Text fontSize={{ base: "sm", md: "md" }} color="gray.600">789 Osu Road, Accra</Text>
                                             </Box>
 
                                             {/* Add more location cards as needed */}
@@ -254,7 +254,7 @@ const Appointment = () => {
                                     transition={{ duration: 0.5 }}
                                     sx={cardStyle}
                                 >
-                                    <Text fontSize="2xl" fontWeight="bold">Staff</Text>
+                                    <Text fontSize={{ base: "xl", md: "2xl" }} fontWeight="bold">Staff</Text>
                                     <Text mt={4}>Select the staff member you'd like to book the appointment with.</Text>
                                 </MotionBox>
                             )}
@@ -268,7 +268,7 @@ const Appointment = () => {
                                     transition={{ duration: 0.5 }}
                                     sx={cardStyle}
                                 >
-                                    <Text fontSize="2xl" fontWeight="bold">Service</Text>
+                                    <Text fontSize={{ base: "xl", md: "2xl" }} fontWeight="bold">Service</Text>
                                     <Text mt={4}>Choose the service you'd like to book for.</Text>
                                 </MotionBox>
                             )}
@@ -282,7 +282,7 @@ const Appointment = () => {
                                     transition={{ duration: 0.5 }}
                                     sx={cardStyle}
                                 >
-                                    <Text fontSize="2xl" fontWeight="bold">Date & Time</Text>
+                                    <Text fontSize={{ base: "xl", md: "2xl" }} fontWeight="bold">Date & Time</Text>
                                     <Text mt={4}>Select the date and time for your appointment.</Text>
                                 </MotionBox>
                             )}
@@ -296,7 +296,7 @@ const Appointment = () => {
                                     transition={{ duration: 0.5 }}
                                     sx={cardStyle}
                                 >
-                                    <Text fontSize="2xl" fontWeight="bold">Information</Text>
+                                    <Text fontSize={{ base: "xl", md: "2xl" }} fontWeight="bold">Information</Text>
                                     <Text mt={4}>Provide your personal information for the appointment.</Text>
                                 </MotionBox>
                             )}
@@ -310,7 +310,7 @@ const Appointment = () => {
                                     transition={{ duration: 0.5 }}
                                     sx={cardStyle}
                                 >
-                                    <Text fontSize="2xl" fontWeight="bold">Cart</Text>
+                                    <Text fontSize={{ base: "xl", md: "2xl" }} fontWeight="bold">Cart</Text>
                                     <Text mt={4}>Review your appointment details before proceeding.</Text>
                                 </MotionBox>
                             )}
@@ -324,7 +324,7 @@ const Appointment = () => {
                                     transition={{ duration: 0.5 }}
                                     sx={cardStyle}
                                 >
-                                    <Text fontSize="2xl" fontWeight="bold">Confirmation</Text>
+                                    <Text fontSize={{ base: "xl", md: "2xl" }} fontWeight="bold">Confirmation</Text>
                                     <Text mt={4}>Your appointment is confirmed! Thank you for booking.</Text>
                                 </MotionBox>
                             )}
@@ -335,14 +335,14 @@ const Appointment = () => {
                             <Button
                                 leftIcon={<FaArrowLeft />}
                                 colorScheme="gray"
-                                size="lg"
+                                size={{ base: "md", md: "lg" }}
                                 onClick={handlePreviousStep}
                             >
                                 Back
                             </Button>
                             <Button
                                 colorScheme="teal"
-                                size="lg"
+                                size={{ base: "md", md: "lg" }}
                                 onClick={handleNextStep}
                             >
                                 Next Steps
